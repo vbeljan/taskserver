@@ -1,0 +1,15 @@
+{application, taskserver, [
+    {description, "Task server"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {mod, {taskserver_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        cowboy
+    ]},
+    {env, [{apib_dir, "./test/apibs"}]},
+    {modules, []},
+    {licenses, ["Apache-2.0"]},
+    {links, []}
+ ]}.
