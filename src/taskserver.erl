@@ -1,6 +1,16 @@
 -module(taskserver).
 
--export([order/1]).
+-define(SCRIPT_HEADER, <<"#!/usr/bin/env bash">>).
+
+-export([order/1,
+         transform_to_script/1]).
+
+-spec transform_to_script(map()) -> binary().
+transform_to_script(#{<<"tasks">> := Tasks}) ->
+    lists:foldl(fun(#{<<"command">> := Command}, Acc) ->
+                        <<Acc/binary, ";",  Command/binary>>
+                end, ?SCRIPT_HEADER, Tasks).
+
 
 -spec order(map()) -> map().
 order(#{<<"tasks">> := Tasks}) ->

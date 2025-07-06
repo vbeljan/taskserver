@@ -35,7 +35,9 @@ end_per_testcase(_TestCase, _Config) ->
 
 all() ->
     [test1,
-     test2].
+     test2,
+     test3,
+     test4].
 
 %%--------------------------------------------------------------------
 %% TEST CASES
@@ -53,6 +55,17 @@ test2(doc) ->
 test2(Config) when is_list(Config) ->
     common_run("request2.apib").
 
+test3(doc) ->
+    ["Test getting script output"];
+
+test3(Config) when is_list(Config) ->
+    common_run("request3.apib").
+
+test4(doc) ->
+    ["Test rearranging a more complex example"];
+
+test4(Config) when is_list(Config) ->
+    common_run("request4.apib").
 
 common_run(ApibFile) ->
     PrivDir = code:priv_dir(taskserver),
