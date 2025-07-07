@@ -37,7 +37,8 @@ all() ->
     [test1,
      test2,
      test3,
-     test4].
+     test4,
+     test5].
 
 %%--------------------------------------------------------------------
 %% TEST CASES
@@ -66,6 +67,12 @@ test4(doc) ->
 
 test4(Config) when is_list(Config) ->
     common_run("request4.apib").
+
+test5(doc) ->
+    ["Circular dependency test"];
+
+test5(Config) when is_list(Config) ->
+    common_run("request5.apib").
 
 common_run(ApibFile) ->
     PrivDir = code:priv_dir(taskserver),

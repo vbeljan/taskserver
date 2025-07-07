@@ -21,3 +21,5 @@ Uses katt to test various API responses. Add or modify an .apib file in /priv an
 Run the tests with:
 
     $ rebar3 ct
+
+It's a bad idea to keep the .apib files in /priv, but I did it anyway just for the sake of simplicity.
